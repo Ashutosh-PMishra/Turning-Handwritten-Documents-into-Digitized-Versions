@@ -54,6 +54,8 @@ The [word beam search decoder](https://repositum.tuwien.ac.at/obvutwoa/download/
 Words are constrained to those contained in a dictionary, but arbitrary non-word character strings (numbers, punctuation marks) can still be recognized.
 The following illustration shows a sample for which word beam search is able to recognize the correct text, while the other decoders fail.
 
+![decoder_comparison](https://github.com/Ashutosh-PMishra/Turning-Handwritten-Documents-into-Digitized-Versions/blob/main/decoder_comparison.png)
+
 ## Train model on IAM dataset
 
 ### Prepare dataset
