@@ -4,8 +4,7 @@ Handwritten Text Recognition (HTR) system implemented with TensorFlow (TF) and t
 The model takes **images of single words or text lines (multiple words) as input** and **outputs the recognized text**.
 3/4 of the words from the validation-set are correctly recognized, and the character error rate is around 10%.
 
-![htr]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\doc\htr.png")
-
+![htr](https://github.com/Ashutosh-PMishra/Turning-Handwritten-Documents-into-Digitized-Versions/blob/main/htr.png)
 
 ## Run demo
 
@@ -22,7 +21,7 @@ The model takes **images of single words or text lines (multiple words) as input
 
 The input images, and the expected outputs are shown below when the text line model is used.
 
-![test]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\data\word.png")
+![test](https://github.com/Ashutosh-PMishra/Turning-Handwritten-Documents-into-Digitized-Versions/blob/main/word.png)
 ```
 > python main.py
 Init with stored values from ../model/snapshot-13
@@ -30,7 +29,7 @@ Recognized: "word"
 Probability: 0.9806370139122009
 ```
 
-![test]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\data\line.png")
+![test](https://github.com/Ashutosh-PMishra/Turning-Handwritten-Documents-into-Digitized-Versions/blob/main/line.png)
 
 ```
 > python main.py --img_file ../data/line.png
