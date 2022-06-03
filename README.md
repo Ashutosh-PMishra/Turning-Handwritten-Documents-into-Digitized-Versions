@@ -1,15 +1,10 @@
-# Handwritten Text Recognition with TensorFlow
-
-* **Update 2021/2: recognize text on line level (multiple words)**
-* **Update 2021/1: more robust model, faster dataloader, word beam search decoder also available for Windows**
-* **Update 2020: code is compatible with TF2**
-
+# Turning Handwritten Documents into Digitized Versions
 
 Handwritten Text Recognition (HTR) system implemented with TensorFlow (TF) and trained on the IAM off-line HTR dataset.
 The model takes **images of single words or text lines (multiple words) as input** and **outputs the recognized text**.
 3/4 of the words from the validation-set are correctly recognized, and the character error rate is around 10%.
 
-![htr](./doc/htr.png)
+![htr]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\doc\htr.png")
 
 
 ## Run demo
@@ -27,7 +22,7 @@ The model takes **images of single words or text lines (multiple words) as input
 
 The input images, and the expected outputs are shown below when the text line model is used.
 
-![test](./data/word.png)
+![test]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\data\word.png")
 ```
 > python main.py
 Init with stored values from ../model/snapshot-13
@@ -35,7 +30,7 @@ Recognized: "word"
 Probability: 0.9806370139122009
 ```
 
-![test](./data/line.png)
+![test]("D:\Projects\Turning Handwritten Documents into Digitized Versions\Special Topics 2\SimpleHTR-master\data\line.png")
 
 ```
 > python main.py --img_file ../data/line.png
@@ -52,27 +47,13 @@ Probability: 0.6674373149871826
 * `--fast`: use LMDB to load images faster.
 * `--line_mode`: train reading text lines instead of single words.
 * `--img_file`: image that is used for inference.
-* `--dump`: dumps the output of the NN to CSV file(s) saved in the `dump` folder. Can be used as input for the [CTCDecoder](https://github.com/githubharald/CTCDecoder).
-
+* `--dump`: dumps the output of the NN to CSV file(s) saved in the `dump` folder. Can be used as input for the [CTCDecoder]
 
 ## Integrate word beam search decoding
 
 The [word beam search decoder](https://repositum.tuwien.ac.at/obvutwoa/download/pdf/2774578) can be used instead of the two decoders shipped with TF.
 Words are constrained to those contained in a dictionary, but arbitrary non-word character strings (numbers, punctuation marks) can still be recognized.
 The following illustration shows a sample for which word beam search is able to recognize the correct text, while the other decoders fail.
-
-![decoder_comparison](./doc/decoder_comparison.png)
-
-Follow these instructions to integrate word beam search decoding:
-
-1. Clone repository [CTCWordBeamSearch](https://github.com/githubharald/CTCWordBeamSearch)
-2. Compile and install by running `pip install .` at the root level of the CTCWordBeamSearch repository
-3. Specify the command line option `--decoder wordbeamsearch` when executing `main.py` to actually use the decoder
-
-The dictionary is automatically created in training and validation mode by using all words contained in the IAM dataset (i.e. also including words from validation set) and is saved into the file `data/corpus.txt`.
-Further, the manually created list of word-characters can be found in the file `model/wordCharList.txt`.
-Beam width is set to 50 to conform with the beam width of vanilla beam search decoding.
-
 
 ## Train model on IAM dataset
 
